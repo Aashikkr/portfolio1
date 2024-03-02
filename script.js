@@ -1,64 +1,50 @@
- let menuIcon= document.querySelector('#menu-icon');
- let navbar= document.querySelector('.navbar');
+//  (function(){
+    let screen = document.querySelector('.screen');
+   //  let buttons = document.querySelectorAll('.btn');
+   //  let clear = document.querySelector('.btn-clear');
+   //  let equal = document.querySelector('.btn-equal');
 
- menuIcon.onclick =()=>{
-  menuIcon.classList.toggle('bx-x');
-  navbar.classList.toggle('active');
- }
+      function appendValue(value){
+         screen.value +=value;
+      }
 
-let sections=document.querySelectorAll('section');
-let navLinks=document.querySelectorAll('header nav a');
+      function calculate(){
+         screen.value = eval(screen.value); 
+      }
 
-window.onscroll = () =>{
-   sections.forEach(sec => {
-     let top = window.scrollY;
-     let offset = sec.offsetTop - 150;
-     let height = sec.offsetHeight;
-     let id = sec.getAttribute('id');
+      // equal.addEventListener('click', function(){
+      //    screen.value = eval(screen.value);
+      // })
 
-     if(top >= offset && top <offset + height) {
-        navLinks.forEach(links =>{
-         links.classList.remove('active');
-         document.querySelector('header nav a[href*='+ id + ']').classList.add('active');
-        });
-     };
- });
- 
- let header =document.querySelector('header');
+      function clearValue(){
+         screen.value=null;
+      }
 
- header.classList.toggle('sticky',window.scrollY >100);
-  //--------------toggle remove----------------
- menuIcon.classList.remove('bx-x');
-navbar.classList.remove('active'); 
-};
-
-//--------------- scroll reveal-------------------------
-ScrollReveal({ 
-     reset: true,
-     distance: '80',
-     duration: 2000,
-     delay: 200
- });
-
- ScrollReveal().reveal('.home-contact, .heading', { origin: 'top'});
- ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, contact form', { origin: 'bottom'});
- ScrollReveal().reveal('.home-contact h1, .about-img', { origin: 'left'});
- ScrollReveal().reveal('.home-contact p, .about-content', { origin: 'right'});
-
-
- //---------------------typed js-----------------------------
-
-const typed=new typed('.multiple-text',{
-   Strings: ['Forntend Developer', 'YouTuber', 'Blogger'],
-   typeSpeed: 100,
-   backSpeed: 100,
-   backDelay: 1000,
-   loop: true
-})
+      // clear.addEventListener('click', function(){
+      //    screen.value= null;
+      // })
 
 
 
+//     buttons.forEach(function(button){
+//         button.addEventListener('click',function(e){
+//             let value = e.target.dataset.num;
+//             screen.value +=value;
+//         })
+//     });
+//     console.log(screen.log)
+     
+//      equal.addEventListener('click',function(){
+//          if(screen.value==""){
+//             screen.value="Please enter";
+//          }else{
+//             let answer = eval(screen.value);
+//             screen.value= answer;
+//          }
+//      })
 
+//      clear.addEventListener('click',function(e){
+//         screen.value=""; 
+//      })
 
-
-
+//  })();
